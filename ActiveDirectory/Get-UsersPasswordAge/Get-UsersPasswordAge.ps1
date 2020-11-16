@@ -66,7 +66,7 @@ try {
   throw $_
 } Finally {
     $m = "Checking domain " + $Domain.DistinguishedName + "."
-    Write-Log -Level INFO -Message "Checking domain $Domain.DistinguishedName"
+    Write-Log -Level INFO -Message $m
     Write-Log -Level INFO -Message "PS> Get-ADDomain"
 }
 
