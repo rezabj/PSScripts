@@ -20,7 +20,7 @@
   Purpose/Change: 
   
 .EXAMPLE
-  <Example goes here. Repeat this attribute for more than one example>
+  .\Get-UsersPasswordAge.ps1 -UsersContainer "OU=HeadOffice,DC=contoso,DC=com" -Path C:\Reports\test_report.xlsx
 #>
 #---------------------------------------------------------[Parameters]-------------------------------------------------------------
 param (
