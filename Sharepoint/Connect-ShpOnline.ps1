@@ -6,6 +6,8 @@
   Script create Excel report of users with to old password.
 .PARAMETER OrgName
     Organization name. E.g. "contoso". First part from url "https://contoso-admin.sharepoint.com".
+.PARAMETER Credentail
+    You can paste credentail by "Get-Credentail".
 .INPUTS
   <Inputs if any, otherwise state None>
 .OUTPUTS
@@ -17,6 +19,9 @@
   
 .EXAMPLE
   .\Connect-ShpOnline.ps1 -OrgName "contoso"
+.EXAMPLE
+  $Cred = Get-Credential
+  .\Connect-ShpOnline.ps1 -OrgName "contoso" -Credential $Cred
 #>
 #---------------------------------------------------------[Parameters]-------------------------------------------------------------
 param (
