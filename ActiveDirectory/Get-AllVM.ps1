@@ -1,0 +1,1 @@
+Get-ADObject -Filter {objectClass -eq 'serviceConnectionPoint' -and Name -eq 'Windows Virtual Machine'} -Properties CanonicalName | ForEach-Object{$_.CanonicalName.Split('/')[-2]}
