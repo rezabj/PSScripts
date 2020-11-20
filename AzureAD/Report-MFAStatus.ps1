@@ -18,7 +18,11 @@
   <Give multiple examples of the script if possible>
 #>
 
-#requires -version 5.0
+#Requires -version 5.0
+# Module MSOnline not work in core edition. 
+#Requires -PSEdition Desktop
+#Requires -Module Logging
+#Requires -Module MSOnline
 
 #-----------------------------------------------------------[Parameters]-----------------------------------------------------------
 
