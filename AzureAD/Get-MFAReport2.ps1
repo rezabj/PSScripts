@@ -43,12 +43,15 @@ foreach ($User in $Users) {
   if($AuthMethods) {
     foreach ($AuthMethod in $AuthMethods) {
       $Report += [PSCustomObject]@{
-        UserID     = $User.Id
-        UserUPN    = $User.UserPrincipalName
-        MFAID      = $AuthMethod.Id
-        MFAType    = $AuthMethod.AdditionalProperties["@odata.type"]
-        MFACreated = $AuthMethod.AdditionalProperties["createdDateTime"]
-        MFADetail  = $AuthMethod.AdditionalProperties | ConvertTo-Json -Compress
+        UserID          = $User.Id
+        UserUPN         = $User.UserPrincipalName
+        UserCompany     = $User.CompanyName
+        UserDepartment  = $User.Department
+        UserDN          = $User.OnPremisesDistinguishedName
+        MFAID           = $AuthMethod.Id
+        MFAType         = $AuthMethod.AdditionalProperties["@odata.type"]
+        MFACreated      = $AuthMethod.AdditionalProperties["createdDateTime"]
+        MFADetail       = $AuthMethod.AdditionalProperties | ConvertTo-Json -Compress
       }
 
       if ($AuthMethod.AdditionalProperties["@odata.type"] -eq "#microsoft.graph.temporaryAccessPassAuthenticationMethod") {
@@ -60,26 +63,35 @@ foreach ($User in $Users) {
 
     }
     $Report2 += [PSCustomObject]@{
-      UserID  = $User.Id
-      UserUPN = $User.UserPrincipalName
-      hasTAP  = $hasTAP
-      hasMFA  = $hasMFA
+      UserID          = $User.Id
+      UserUPN         = $User.UserPrincipalName
+      UserCompany     = $User.CompanyName
+      UserDepartment  = $User.Department
+      UserDN          = $User.OnPremisesDistinguishedName
+      hasTAP          = $hasTAP
+      hasMFA          = $hasMFA
     }
   } else {
     $Report += [PSCustomObject]@{
-      UserID     = $User.Id
-      UserUPN    = $User.UserPrincipalName
-      MFAID      = "N/A"
-      MFAType    = "N/A"
-      MFACreated = "N/A"
-      MFADetail  = "N/A"
+      UserID          = $User.Id
+      UserUPN         = $User.UserPrincipalName
+      UserCompany     = $User.CompanyName
+      UserDepartment  = $User.Department
+      UserDN          = $User.OnPremisesDistinguishedName
+      MFAID           = "N/A"
+      MFAType         = "N/A"
+      MFACreated      = "N/A"
+      MFADetail       = "N/A"
     }
 
     $Report2 += [PSCustomObject]@{
-      UserID  = $User.Id
-      UserUPN = $User.UserPrincipalName
-      hasTAP  = $false
-      hasMFA  = $false
+      UserID          = $User.Id
+      UserUPN         = $User.UserPrincipalName
+      UserCompany     = $User.CompanyName
+      UserDepartment  = $User.Department
+      UserDN          = $User.OnPremisesDistinguishedName
+      hasTAP          = $false
+      hasMFA          = $false
     }
   }
 }
