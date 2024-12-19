@@ -1,0 +1,1 @@
+$VPNName = "VPN Name"; while ($true) { $ConnStatus = (Get-VpnConnection -AllUserConnection -Name $VPNName).ConnectionStatus;  if ($ConnStatus -eq "Disconnected") { Start-Process "C:\Windows\System32\rasdial.exe" -ArgumentList "ikev2vpn" -NoNewWindow -Wait } else { Start-Sleep -Seconds 5 } }; exit 1
